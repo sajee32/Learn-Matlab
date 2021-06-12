@@ -1,0 +1,19 @@
+You can load variables from a MAT-file using the load command.
+>> load filename
+You can remove all variables from your workspace with the clear function.
+To save the workspace to a MAT-file named filename.mat, use the command:
+>> save filename
+ You can use the clc command to clean up the Command Window.
+ 
+ pi is for 22/7 , sqrt for square root
+ 
+ 
+ You can create arrays with multiple elements using square brackets
+ ---------------------------------------
+ If you know the number of elements you want in a vector (instead of the spacing between each element), you could instead use the linspace function:
+linspace(first,last,number_of_elements).
+
+Note the use of commas (,) to separate inputs to the linspace function.
+x = linspace(0,1,5)
+x = 
+    0    0.250    0.500    0.750    1.000
