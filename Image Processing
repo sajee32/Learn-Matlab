@@ -1,0 +1,41 @@
+You can import an image into memory and assign it to a variable in the MATLAB workspace for later manipulation, display, and export.
+
+A = imread("imgFile.jpg");
+
+Ending the line with a semicolon stops MATLAB from displaying the values stored in A, which is helpful since images typically contain millions of values.
+
+Image data stored in a variable A can be displayed using the imshow function.
+
+imshow(A)
+
+You can display two images together using the imshowpair function.
+
+imshowpair(A1,A2,"montage")
+
+The "montage" option places the images A1 and A2 side-by-side, with A1 on the left and A2 on the right.
+
+The function imwrite exports data stored in the MATLAB Workspace to an image file.
+
+imwrite(imgData,"img.jpg")
+
+The output file format is automatically identified based on the file extension.
+
+You can find the size of an array using the size function.
+
+sz = size(A)
+
+The first value returned by size is the number of rows in the array, which corresponds to the height of the image. The second value is the number of columns in the array, which corresponds to the width of the image.
+
+Most images use the unsigned 8-bit integer (uint8) data type, which stores integers from 0 to 255. Bright or brightly colored images contain pixel intensity values near 255 in one or more color planes.
+
+You can find the largest value in an array using the max function.
+
+Amax = max(A,[],"all")
+
+ if you want to extract all three color planes of an image array, you can use imsplit instead of indexing into each plane individually.
+
+[R,G,B] = imsplit(A);
+
+You can display all three color planes at once using montage.
+
+montage({R,G,B})
