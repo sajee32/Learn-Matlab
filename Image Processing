@@ -39,3 +39,26 @@ Amax = max(A,[],"all")
 You can display all three color planes at once using montage.
 
 montage({R,G,B})
+
+
+contrast in an image by viewing its intensity histogram using the imhist function.
+
+imhist(I)
+
+If the histogram shows pixels binned mainly at the high and low ends of the spectrum, the receipt has good contrast. If not, it could probably benefit from a contrast adjustment.
+Increasing image contrast brightens brighter pixels and darkens darker pixels. You can use the imadjust function to adjust the contrast of a grayscale image automatically.
+
+Aadj = imadjust(A);
+
+
+
+To automate the threshold selection process, you can use the imbinarize function, which calculates the "best" threshold for the image.
+
+gBinary = imbinarize(g);
+
+
+By default, the foreground of an image is assumed to be bright and the background dark. But for receipts, the foreground is the dark text, and the background is bright.
+
+In imbinarize, you can designate whether the foreground is bright or dark by setting the "ForegroundPolarity" option.
+gBinary = imbinarize(g,"adaptive",...
+            "ForegroundPolarity","dark")
