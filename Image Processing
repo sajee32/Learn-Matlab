@@ -84,3 +84,16 @@ To adjust this behavior, use the "replicate" option.
 Ifltr = imfilter(I,F,"replicate");
 
 Instead of zeros, the "replicate" option uses pixel intensity values on the image border for pixels outside the image.
+
+
+
+You can compute the sum across rows of an array using the sum function.
+rSum = sum(BW,2)
+
+In a receipt image, the background is anything that is not text. By using a structuring element larger than a typical letter, each "window" captures what's behind the text and not the text itself.
+
+Structuring elements are created using the strel function.
+
+SE = strel("diamond",5)
+
+The code above defines SE as a diamond-shaped structuring element with radius 5 pixels (the distance from the center to the points of the diamond).
