@@ -62,3 +62,25 @@ By default, the foreground of an image is assumed to be bright and the backgroun
 In imbinarize, you can designate whether the foreground is bright or dark by setting the "ForegroundPolarity" option.
 gBinary = imbinarize(g,"adaptive",...
             "ForegroundPolarity","dark")
+            
+            
+            
+Images taken in low light often become noisy due to the increase in camera sensitivity required to capture the image. This noise can interfere with receipt identification by
+polluting regions in the binarized image.
+
+To reduce the impact of this noise on the binary image, you can preprocess the image with an averaging filter.
+
+Use the fspecial function to create an n-by-n averaging filter.
+
+F = fspecial("average",n)
+
+You can apply a filter F to an image I by using the imfilter function.
+Ifltr = imfilter(I,F);
+
+If you look closely, you can see that filtering introduced a small, unwanted dark outline to parts of the binary image border. That's because the default setting of imfilter sets pixels outside the image to zero.
+
+To adjust this behavior, use the "replicate" option.
+
+Ifltr = imfilter(I,F,"replicate");
+
+Instead of zeros, the "replicate" option uses pixel intensity values on the image border for pixels outside the image.
