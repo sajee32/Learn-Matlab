@@ -113,3 +113,5 @@ Isub = I2 - I1;
 Because imclose emphasizes brightness in an image, the background image Ibg has higher intensities than gs. Subtracting Ibg from gs would result in negative intensities.
 
 
+
+
