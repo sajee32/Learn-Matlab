@@ -97,3 +97,10 @@ Structuring elements are created using the strel function.
 SE = strel("diamond",5)
 
 The code above defines SE as a diamond-shaped structuring element with radius 5 pixels (the distance from the center to the points of the diamond).
+
+The foreground (the text) is dark, and the background is bright. Closing the image will emphasize and connect the brighter background, removing the thin dark lettering. Larger background objects, like the thumb, will remain. The final result: an image of the background without the text.
+
+To perform a closing operation on an image I with structuring element SE, use the imclose function.
+
+Iclosed = imclose(I,SE);
+
